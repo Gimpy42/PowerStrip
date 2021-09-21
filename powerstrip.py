@@ -75,7 +75,10 @@ class PowerStrip():
         for i, line in enumerate(self.results):
             for f in self.functions:
                 if f in line:
-                    self.results[i] = line.replace(f, f[0] + f)
+                    stutterresult = ''
+                    for l in f:
+                        stutterresult = stutterresult +l*2
+                    self.results[i] = line.replace(f, stutterresult)
                     replaced += 1
         print('[*] {} total function names detected.'.format(len(self.functions)))
         print('[*] {} function name substitutions.'.format(replaced))
